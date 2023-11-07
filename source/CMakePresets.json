@@ -1,0 +1,64 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "MinGW Makefiles",
+      "environment": {
+        "PATH": "$penv{WINLIBS};$penv{PATH}"
+      },
+      "warnings": {
+        "dev": true
+      }
+    },
+    {
+      "name": "gcc",
+      "inherits": "base",
+      "displayName": "GCC",
+      "description": "GCC compiler",
+      "binaryDir": "build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": {
+          "type": "STRING",
+          "value": "Release"
+        }
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "verbose": true
+    },
+    {
+      "name": "gcc",
+      "inherits": "base",
+      "displayName": "GCC",
+      "configurePreset": "gcc"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "test",
+      "configurePreset": "gcc",
+      "output": {
+        "shortProgress": false,
+        "outputOnFailure": true,
+        "outputLogFile": "test.log"
+      },
+      "execution": {
+        "stopOnFailure": true,
+        "jobs": 0,
+        "scheduleRandom": true,
+        "timeout": 0
+      }
+    }
+  ]
+}
