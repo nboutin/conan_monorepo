@@ -9,4 +9,4 @@ Use -DCMAKE_INSTALL_PREFIX=../local for local test
     cmake --build --preset gcc
 
     ctest -VV
-    cmake --build gcc --target install
+    cmake --build --preset gcc --target install

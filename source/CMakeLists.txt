@@ -20,5 +20,41 @@ target_include_directories(MyLibrary PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 
+# target_include_directories(Foo PUBLIC
+#     $<BUILD_INTERFACE:${Foo_BINARY_DIR}/include>
+#     $<BUILD_INTERFACE:${Foo_SOURCE_DIR}/include>
+#     $<INSTALL_INTERFACE:include>
+# )
+
 # target_link_libraries(MyLibrary PRIVATE Foo::Foo)
 add_library(MyCompangy::MyLibrary ALIAS MyLibrary)
+
+install(TARGETS MyLibrary EXPORT MyLibraryTargets
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION include
+)
+
+install(EXPORT MyLibraryTargets
+    DESTINATION lib/cmake/MyLibrary
+    FILE MyLibraryTargets.cmake
+    NAMESPACE MyCompangy::
+)
+
+install(DIRECTORY include/MyLibrary
+    DESTINATION include
+)
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    MyLibraryConfigVersion.cmake
+    COMPATIBILITY SameMajorVersion
+    # VERSION ${PACKAGE_VERSION}
+)
+
+install(FILES
+    MyLibraryConfig.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/MyLibraryConfigVersion.cmake
+    DESTINATION lib/cmake/MyLibrary
+)

@@ -1,10 +1,21 @@
 cmake_minimum_required(VERSION 3.8)
 project(MyLibraryTest VERSION 0.1.0)
 
-find_package(MyLibrary CONFIG REQUIRED)
+# dependencies
+enable_testing()
+find_package(GTest MODULE REQUIRED)
+if(NOT TARGET MyCompagny::MyLibrary)
+  find_package(MyLibrary CONFIG REQUIRED)
+endif()
+
+add_executable(MyLibraryTest
+  test_source.cpp
+)
 
 target_link_libraries(MyLibraryTest
-    PUBLIC
-        MyCompagny::MyLibrary
-        GTest::Main
+  PRIVATE
+    MyCompagny::MyLibrary
+    GTest::Main
 )
+
+add_test(NAME MyLibrary.Test COMMAND MyLibraryTest)
