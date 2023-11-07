@@ -18,4 +18,4 @@ target_link_libraries(MyLibraryTest
     GTest::Main
 )
 
-add_test(NAME MyLibrary.Test COMMAND MyLibraryTest)
+add_test(NAME MyLibraryTest COMMAND MyLibraryTest)

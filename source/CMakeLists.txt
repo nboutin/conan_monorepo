@@ -27,7 +27,7 @@ target_include_directories(MyLibrary PUBLIC
 # )
 
 # target_link_libraries(MyLibrary PRIVATE Foo::Foo)
-add_library(MyCompangy::MyLibrary ALIAS MyLibrary)
+add_library(MyCompagny::MyLibrary ALIAS MyLibrary)
 
 install(TARGETS MyLibrary EXPORT MyLibraryTargets
     LIBRARY DESTINATION lib
@@ -39,7 +39,7 @@ install(TARGETS MyLibrary EXPORT MyLibraryTargets
 install(EXPORT MyLibraryTargets
     DESTINATION lib/cmake/MyLibrary
     FILE MyLibraryTargets.cmake
-    NAMESPACE MyCompangy::
+    NAMESPACE MyCompagny::
 )
 
 install(DIRECTORY include/MyLibrary
