@@ -41,9 +41,9 @@ Verify package creation and export
     git clone https://github.com/google/googletest.git -b v1.14.0
     cd googletest
 
-    cmake -H. -Bbuild -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../local
+    cmake -H. -Bbuild -G Ninja -DCMAKE_BUILD_TYPE=Release
     cmake --build build
-    cmake --build build --target install
+    cmake --install build --strip --prefix ~/.local
 
 or
 
