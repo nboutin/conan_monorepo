@@ -1,7 +1,7 @@
 # Use for project development
 # Entry point for IDEs (visual studio)
 
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.17)
 project(Mylibrary)
 
 # Parallel build
