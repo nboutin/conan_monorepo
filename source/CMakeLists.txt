@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.14)
 project(MyLibrary VERSION 0.1.0)
 
 # Parallel build
@@ -31,12 +31,8 @@ target_include_directories(MyLibrary PUBLIC
 # target_link_libraries(MyLibrary PRIVATE Foo::Foo)
 add_library(MyCompagny::MyLibrary ALIAS MyLibrary)
 
-install(TARGETS MyLibrary EXPORT MyLibraryTargets
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    RUNTIME DESTINATION bin
-    INCLUDES DESTINATION include
-)
+include(GNUInstallDirs)
+install(TARGETS MyLibrary EXPORT MyLibraryTargets)
 
 install(EXPORT MyLibraryTargets
     DESTINATION lib/cmake/MyLibrary
