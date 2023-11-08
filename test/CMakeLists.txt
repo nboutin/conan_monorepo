@@ -19,6 +19,8 @@ add_executable(MyLibraryTest
   test_source.cpp
 )
 
+target_compile_features(MyLibraryTest PRIVATE cxx_std_17)
+
 target_link_libraries(MyLibraryTest
   PRIVATE
     MyCompagny::MyLibrary

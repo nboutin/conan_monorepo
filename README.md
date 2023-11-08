@@ -2,9 +2,9 @@
 
 ## ToDo
 
-- Use GCC12 and GCC13
 - MyLibrary has dependency on another lib name Foo
 - How to handle dependency on a build type (Debug/Release). test should use Debug but application should use Release.
+- Use GCC12 and GCC13
 
 ## Generate, Build, Test, Install with CMake
 
