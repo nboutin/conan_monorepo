@@ -3,7 +3,7 @@
 # On error, exit immediately
 set -e
 
-cmake -H. -Bbuild/gcc/release -G"MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=../local
+cmake -H. -Bbuild/gcc/release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../local
 cmake --build build/gcc/release
 (cd build/gcc/release && ctest -C Release -VV)
 

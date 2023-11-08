@@ -3,13 +3,14 @@
 ## ToDo
 
 - Use GCC12 and GCC13
-- MyLibrary has dependencie on another lib name Foo
+- MyLibrary has dependency on another lib name Foo
+- How to handle dependency on a build type (Debug/Release). test should use Debug but application should use Release.
 
 ## Generate, Build, Test, Install with CMake
 
 ### From top level directory
 
-    cmake -H. -Bbuild/gcc/release -G"MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=../local
+    cmake -H. -Bbuild/gcc/release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../local
     cmake --build build/gcc/release
     (cd build/gcc/release && ctest -C Release -VV)
 
@@ -19,7 +20,7 @@ The parentheses ensure that the cd command only affects the ctest command, not a
 
 ### From source
 
-    cmake -H. -Bbuild/gcc/release -G"MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=../../local
+    cmake -H. -Bbuild/gcc/release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../../local
     cmake --build build/gcc/release
     cmake --build build/gcc/release --target install
 
@@ -31,15 +32,16 @@ Verify package creation and export
 2. Build and run test from test folder:
 
     cd test
-    cmake --preset gcc -DCMAKE_INSTALL_PREFIX=../local
-    ctest -VV
+    cmake -H. -Bbuild/gcc/debug -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../../local
+    cmake --build build/gcc/debug
+    (cd build/gcc/Debug && ctest -C Debug -VV)
 
 ## Setup GoogleTest with CMake
 
     git clone https://github.com/google/googletest.git -b v1.14.0
     cd googletest
 
-    cmake -H. -G"MinGW Makefiles" -Bbuild -DCMAKE_INSTALL_PREFIX=../local
+    cmake -H. -G Ninja -Bbuild -DCMAKE_INSTALL_PREFIX=../local
     cmake --build build
     cmake --build build --target install
 
