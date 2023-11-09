@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "D:\\perso\\dev\\conan_monorepo\\applications\\conan_example2\\tool_requires\\build\\CMakePresets.json"
+    ]
+}

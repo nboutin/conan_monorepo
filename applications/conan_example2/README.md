@@ -12,6 +12,12 @@
     cmake --build build
     ./build/compressor.exe
 
+## Build CMakePreset
+
+    conan install . --output-folder=build --build=missing
+    cmake -G Ninja --preset conan-release
+    cmake --build --preset conan-release
+
 ## Use another profile
 
     conan install . --output-folder=build --build=missing -pr gcc_13
