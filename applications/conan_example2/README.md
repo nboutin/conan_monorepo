@@ -8,7 +8,7 @@
 ## Build
 
     conan install . --output-folder=build --build=missing
-    cmake -H. -Bbuild -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
+    cmake -H. -Bbuild -G Ninja -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
     cmake --build build
     ./build/compressor.exe
 
@@ -16,6 +16,16 @@
 
     conan install . --output-folder=build --build=missing -pr gcc_13
 
+## Select build type
+
+    conan install . --output-folder=build --build=missing -pr gcc_13 -s build_type=Debug
+    cmake -H. -Bbuild -G "Ninja Multi-Config" -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
+    cmake --build build --config Debug
+    ./build/Debug/compressor.exe
+
+## Shared library
+
+    conan install . --output-folder=build --build=missing -pr gcc_13 --options=zlib/1.2.11:shared=True
 
 ## Profile
 
