@@ -1,0 +1,16 @@
+[settings]
+os=baremetal
+arch=armv8
+compiler=clang
+compiler.cppstd=98
+compiler.libcxx=libstdc++
+compiler.version=6.0
+build_type=Release
+[buildenv]
+PATH=+D:\program\Keil_v537\ARM\ARMCLANG\bin
+# ASM armclang
+# AR armar
+# ARM_FROMELF fromelf
+CC=armclang
+CXX=armclang
+LD=armlink

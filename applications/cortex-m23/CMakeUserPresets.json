@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "D:\\00_dev\\conan_monorepo\\applications\\cortex-m23\\build\\Release\\generators\\CMakePresets.json"
+    ]
+}
