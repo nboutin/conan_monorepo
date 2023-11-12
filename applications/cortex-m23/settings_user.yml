@@ -1,0 +1,5 @@
+arch: ['armv8-m']
+compiler:
+  armclang:
+    version: [6.18]
+    cstd: [c99]
