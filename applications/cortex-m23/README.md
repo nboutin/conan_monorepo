@@ -9,7 +9,6 @@
 
     conan build . -pr cortex-m23 -s build_type=MinSizeRel
 
-
 ## (old) Build with conan only
 
     conan config install settings_user.yml

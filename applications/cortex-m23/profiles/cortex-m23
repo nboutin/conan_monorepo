@@ -1,5 +1,5 @@
 {% set processor = "cortex-m23" %}
 {% set float_abi = "soft" %}
 {% set fpu = "auto" %}
-{% include "thumbv8" %}
+{% include "armclang" %}
 

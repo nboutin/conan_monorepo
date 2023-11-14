@@ -11,3 +11,6 @@ arch:
     float_abi: ["soft", "softfp", "hard"]
     processor:
       ["cortex-m23", "cortex-m33", "cortex-m35p", "cortex-m55", "cortex-m85"]
+compiler:
+  armclang:
+    version: [6.18]
