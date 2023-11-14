@@ -3,3 +3,4 @@ local/
 Testing/
 
 test.log
+CMakeUserPresets.json
