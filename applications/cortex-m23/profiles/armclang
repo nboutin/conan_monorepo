@@ -10,7 +10,14 @@ arch.processor={{ processor }}
 tools.build.cross_building:can_run=False
 tools.build:compiler_executables={"c": "armclang", "cpp": "armclang", "asm": "armclang"}
 
+tools.build:cflags=["-mcpu={{ processor }}"]
+tools.build:cxxflags=["-mcpu={{ processor }}"]
+tools.build:exelinkflags=["--cpu={{ processor }}"]
+
+tools.cmake.cmaketoolchain:system_name="Generic"
+tools.cmake.cmaketoolchain:system_processor="{{ processor }}"
+
 {# tools.cmake.cmaketoolchain:user_toolchain:[armclang.cmake] #}
 
 [buildenv]
-PATH=+D:\program\mdk-arm_v537\ARM\ARMCLANG\bin;
+PATH=+D:\program\Keil_v537\ARM\ARMCLANG\bin;
