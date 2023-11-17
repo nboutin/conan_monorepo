@@ -1,3 +1,5 @@
+import os
+
 from conan import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout, CMakeDeps
 
@@ -17,20 +19,24 @@ class uartRecipe(ConanFile):
     # Binary configuration
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [False], "fPIC": [True, False]}
-    default_options = {"shared": False, "fPIC": True}
+    default_options = {"shared": False, "fPIC": False}
 
     # Sources are located in the same place as this recipe, copy them to the recipe
-    exports_sources = "CMakeLists.txt", "src/*", "include/*"
+    exports_sources = "CMakeLists.txt", "source/*", "include/*", "test/*"
+
+    def requirements(self):
+        self.test_requires("gtest/1.14.0")
 
     def config_options(self):
-        # if self.settings.os == "Windows":
-        #     self.options.rm_safe("fPIC")
-        pass
+        if self.settings.os == "Windows":
+            self.options.rm_safe("fPIC")
 
     def configure(self):
+        pass
+        # del self.settings.compiler.cppstd
+        # del self.settings.compiler.libcxx
         # if self.options.shared:
         #     self.options.rm_safe("fPIC")
-        pass
 
     def layout(self):
         cmake_layout(self)
@@ -45,6 +51,9 @@ class uartRecipe(ConanFile):
         cmake = CMake(self)
         cmake.configure()
         cmake.build()
+        if self.settings.os == "Windows":
+            # cmake.test(target="test_uart")
+            self.run(f"ctest -C {self.settings.build_type} --output-on-failure")
 
     def package(self):
         cmake = CMake(self)
