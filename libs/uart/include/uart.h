@@ -1,14 +1,9 @@
 #pragma once
 
-#include <vector>
-#include <string>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stddef.h>
 
+void UART_Configure(void);
 
-#ifdef _WIN32
-  #define UART_EXPORT __declspec(dllexport)
-#else
-  #define UART_EXPORT
-#endif
-
-UART_EXPORT void uart();
-UART_EXPORT void uart_print_vector(const std::vector<std::string> &strings);
+bool UART_Transmit(const uint8_t* data, size_t size);
