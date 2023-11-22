@@ -15,3 +15,11 @@
 
     conan create . --build=missing --test-folder="" # -tf=""
     conan test test_package uart/0.1.0
+
+## Package editable mode
+
+    cd libs
+    conan editable add uart
+    conan editable list
+    conan editable remove --refs=uart/0.1.0
+    conan editable remove --refs=uart/*

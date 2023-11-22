@@ -7,7 +7,7 @@ class cortex_m23_recipe(ConanFile):
     generators = "CMakeToolchain", "CMakeDeps", "VirtualBuildEnv"
 
     def requirements(self):
-        pass
+        self.requires("uart/0.1.0")
 
     def build_requirements(self):
         pass

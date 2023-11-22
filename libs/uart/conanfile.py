@@ -25,7 +25,8 @@ class uartRecipe(ConanFile):
     exports_sources = "CMakeLists.txt", "source/*", "include/*", "test/*"
 
     def requirements(self):
-        self.test_requires("gtest/1.14.0")
+        if self.settings.os == "Windows":
+            self.test_requires("gtest/1.14.0")
 
     def config_options(self):
         if self.settings.os == "Windows":
