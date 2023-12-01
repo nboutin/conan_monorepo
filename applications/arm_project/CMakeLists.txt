@@ -5,6 +5,6 @@ project(arm_project
     LANGUAGES CXX C
     VERSION 0.1.0)
 
-add_executable(${PROJECT_NAME} source/main.cpp)
+add_executable(${PROJECT_NAME} source/main.c)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".axf")

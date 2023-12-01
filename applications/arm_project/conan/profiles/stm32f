@@ -1,12 +1,19 @@
+{% set float_abi = "soft" %}
+{% set cpu = "cortex-m3" %}
+{% set fpu = "auto" %}
+
 [settings]
 os=baremetal
 arch=thumbv7
-arch.float_abi=soft
-arch.fpu=auto
-arch.processor=cortex-m3
+arch.float_abi={{ float_abi }}
+arch.fpu={{ fpu }}
+arch.processor={{ cpu }}
 compiler=gcc
 compiler.version=12.3
 compiler.libcxx=libstdc++
 
 [tool_requires]
 arm-gnu-toolchain/12.3.1
+
+[conf]
+tools.build:exelinkflags=["--specs=nosys.specs", "--specs=picolibc.specs"]

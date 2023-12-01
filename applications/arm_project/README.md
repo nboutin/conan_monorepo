@@ -9,29 +9,11 @@
     conan config install conan/settings_user.yml
     conan config install -sf conan/profiles -tf profiles .
 
-## Build
+## Build with Conan
 
     conan build . -pr stm32f -s build_type=MinSizeRel
 
 
+## Build with CMake
 
-## backup
-
-[settings]
-compiler=gcc
-compiler.cppstd=20
-compiler.libcxx=libstdc++
-compiler.version=12.2
-os=baremetal
-arch=thumbv7
-arch.float_abi={{ float_abi }}
-arch.fpu={{ fpu }}
-arch.processor={{ cpu }}
-
-[tool_requires]
-arm-gnu-toolchain/12.2.1
-
-[conf]
-tools.build:cflags=["-mfloat-abi={{ float_abi }}", "-mcpu={{ cpu }}", "-mfpu={{ fpu }}", "-mthumb", "-ffunction-sections", "-fdata-sections"]
-tools.build:cxxflags=["-mfloat-abi={{ float_abi }}", "-mcpu={{ cpu }}", "-mfpu={{ fpu }}", "-fno-exceptions", "-fno-rtti", "-mthumb", "-ffunction-sections", "-fdata-sections"]
-tools.build:exelinkflags=["--specs=nano.specs", "--specs=nosys.specs", "--specs=picolibc.specs", "-mfloat-abi={{ float_abi }}", "-mcpu={{ cpu }}", "-mfpu={{ fpu }}", "-fno-exceptions", "-fno-rtti", "-mthumb", "-ffunction-sections", "-fdata-sections"]
+    cmake --build build/MinSizeRel
