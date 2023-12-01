@@ -7,4 +7,4 @@ project(arm_project
 
 add_executable(${PROJECT_NAME} source/main.cpp)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".axf")
+set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".elf")

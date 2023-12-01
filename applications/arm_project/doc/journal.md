@@ -1,5 +1,11 @@
 # ARM Project - journal
 
+## picolibc settings
+
+    --oslib=semihosting
+    --crt0=minimal
+    -Tstm.ld
+
 ## Conan conf
 
 tools.build:cflags=["-mfloat-abi={{ float_abi }}", "-mcpu={{ cpu }}", "-mfpu={{ fpu }}"]

@@ -1,5 +1,5 @@
 {% set float_abi = "soft" %}
-{% set cpu = "cortex-m3" %}
+{% set cpu = "cortex-m4" %}
 {% set fpu = "auto" %}
 
 [settings]
