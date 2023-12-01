@@ -1,0 +1,12 @@
+[settings]
+os=baremetal
+arch=thumbv7
+arch.float_abi=soft
+arch.fpu=auto
+arch.processor=cortex-m3
+compiler=gcc
+compiler.version=12.3
+compiler.libcxx=libstdc++
+
+[tool_requires]
+arm-gnu-toolchain/12.3.1
