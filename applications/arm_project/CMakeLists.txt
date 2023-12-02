@@ -8,3 +8,7 @@ project(arm_project
 add_executable(${PROJECT_NAME} source/main.cpp)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".elf")
+
+target_link_options(${PROJECT_NAME} PRIVATE
+  "SHELL:-T ${CMAKE_SOURCE_DIR}/source/stm32f401_disco.ld"
+)

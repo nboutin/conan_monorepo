@@ -13,7 +13,6 @@
 
     conan build . -pr stm32f -s build_type=MinSizeRel
 
-
 ## Build with CMake
 
     cmake --build build/MinSizeRel
