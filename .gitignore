@@ -4,3 +4,8 @@ Testing/
 
 test.log
 CMakeUserPresets.json
+*.o
+*.d
+*.dep
+*.htm
+*.lnp
