@@ -1,5 +1,16 @@
 # ARM Project - journal
 
+## OpenOCD
+
+https://gnutoolchains.com/arm-eabi/openocd/
+
+
+## ST-LINK Utility
+
+Update ST-Link/v2 Firmware
+ - Download and install the ST-LINK Utility onto your computer from the STMicroelectronics website.
+ - Open the ST-LINK Utility and select ST-LINK | Firmware Update | Device Connect | Yes. This will update the firmware on your ST-LINK/V2 programmer. Version V2.J32.M22 is known to work 1.
+
 ## picolibc settings
 
     --oslib=semihosting

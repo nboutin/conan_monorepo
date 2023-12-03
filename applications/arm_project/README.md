@@ -16,3 +16,13 @@
 ## Build with CMake
 
     cmake --build build/MinSizeRel
+
+## Flash stm32f401-disco board
+
+Settings:
+
+Update board and driver with STM32CubeProgrammer
+
+Use:
+
+    openocd -f board/stm32f4discovery.cfg -c "program build/MinSizeRel/arm_project.elf" -c reset -c shutdown
